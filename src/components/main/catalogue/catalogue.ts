@@ -1,6 +1,7 @@
 import { ProductList } from './productList';
 import { IProductItem } from '../interface/Iproducts';
 import { sortComponent } from '../filters/sortProducts';
+import { searchComponent } from '../filters/search';
 
 export class Catalogue {
   catalogue: ProductList;
@@ -13,8 +14,9 @@ export class Catalogue {
 
   renderHelpers(products: IProductItem[]) {
     const sortSearchContainer = document.createElement('div');
-    sortSearchContainer.className = 'catalogue-sorters';
+    sortSearchContainer.className = 'catalogue-helpers';
     sortComponent.loadSortComponent(sortSearchContainer, products);
+    searchComponent.loadSearchComponent(sortSearchContainer, products);
     return sortSearchContainer;
   }
 

@@ -71,3 +71,9 @@
 .filter__checkbox-input:checked + * {
   font-weight: bold;
 }
+
+.catalogue-helpers {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}

@@ -3,6 +3,7 @@ import { IProductItem } from '../interface/Iproducts';
 import { getIntersectionsInArray, getSelector } from '../../../functions/utils';
 import { ProductList } from '../catalogue/productList';
 import { sortComponent } from './sortProducts';
+import { searchComponent } from './search';
 
 class FilterProducts extends FilterComponents {
   static activeFilters: { [x: string]: string[] };
@@ -55,6 +56,9 @@ class FilterProducts extends FilterComponents {
     allCounts.forEach((span) => (span.innerHTML = ' 0/ '));
 
     const updateProductsList = (productsArray: IProductItem[]) => {
+      if (searchComponent.isActiveSearch()) {
+        productsArray = searchComponent.searchProducts(productsArray);
+      }
       sortComponent.sortProductsLogic(productsArray);
       newProducts = new ProductList().render(productsArray);
       this.updateFiltersAmount(productsArray);
@@ -72,6 +76,7 @@ class FilterProducts extends FilterComponents {
 
     if (idFilteredProducts.length === 0 && isNotActive) {
       updateProductsList(products);
+      console.log(searchComponent.isActiveSearch());
     }
 
     const productsContainer = getSelector(document, '.products-container');
@@ -81,8 +86,11 @@ class FilterProducts extends FilterComponents {
   makeQuery(filters: { [x: string]: string[] }) {
     const query = Object.entries(filters)
       .map(([key, value]) => {
-        return `${key}=${value}`;
+        if (value.length) {
+          return `${key}=${value}`;
+        }
       })
+      .filter((item) => item !== undefined)
       .join('&');
     return `?${query}`;
   }
