@@ -54,11 +54,15 @@ class FilterProducts extends FilterComponents {
     let newProducts = '';
     allCounts.forEach((span) => (span.innerHTML = ' 0/ '));
 
+    const updateProductsList = (productsArray: IProductItem[]) => {
+      sortComponent.sortProductsLogic(productsArray);
+      newProducts = new ProductList().render(productsArray);
+      this.updateFiltersAmount(productsArray);
+      this.updateFoundProductsTotal(productsArray);
+    };
+
     if (idFilteredProducts.length !== 0) {
-      sortComponent.sortProductsLogic(productsArr);
-      newProducts = new ProductList().render(productsArr);
-      this.updateFiltersAmount(productsArr);
-      this.updateFoundProductsTotal(productsArr);
+      updateProductsList(productsArr);
     }
 
     if (idFilteredProducts.length === 0 && !isNotActive) {
@@ -67,10 +71,7 @@ class FilterProducts extends FilterComponents {
     }
 
     if (idFilteredProducts.length === 0 && isNotActive) {
-      sortComponent.sortProductsLogic(products);
-      newProducts = new ProductList().render(products);
-      this.updateFiltersAmount(products);
-      this.updateFoundProductsTotal(products);
+      updateProductsList(products);
     }
 
     const productsContainer = getSelector(document, '.products-container');

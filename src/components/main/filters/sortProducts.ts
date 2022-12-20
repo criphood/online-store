@@ -61,7 +61,7 @@ export class Sort {
       }
     });
     productListNode.innerHTML = '';
-    const toDisplayOrder = this.sortProductsLogic(products)
+    this.sortProductsLogic(products)
       .filter((item) => displayedProductsID.includes(item.id))
       .forEach((item) => {
         productListNode.innerHTML += new ProductComponent(item).render();
