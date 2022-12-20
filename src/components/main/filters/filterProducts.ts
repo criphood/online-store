@@ -1,7 +1,8 @@
 import { FilterComponents } from './filtersComponent';
 import { IProductItem } from '../interface/Iproducts';
-import { getIntersectionsInArray } from '../../../functions/utils';
+import { getIntersectionsInArray, getSelector } from '../../../functions/utils';
 import { ProductList } from '../catalogue/productList';
+import { sortComponent } from './sortProducts';
 
 class FilterProducts extends FilterComponents {
   static activeFilters: { [x: string]: string[] };
@@ -35,6 +36,7 @@ class FilterProducts extends FilterComponents {
             break;
           case 'reset':
             this.setDefaultState();
+            sortComponent.setSortValue('default');
             allInputs.forEach((item) => (item.checked = false));
             this.renderFilteredProducts(products);
             this.syncURL({});
@@ -53,6 +55,7 @@ class FilterProducts extends FilterComponents {
     allCounts.forEach((span) => (span.innerHTML = ' 0/ '));
 
     if (idFilteredProducts.length !== 0) {
+      sortComponent.sortProductsLogic(productsArr);
       newProducts = new ProductList().render(productsArr);
       this.updateFiltersAmount(productsArr);
       this.updateFoundProductsTotal(productsArr);
@@ -64,13 +67,14 @@ class FilterProducts extends FilterComponents {
     }
 
     if (idFilteredProducts.length === 0 && isNotActive) {
+      sortComponent.sortProductsLogic(products);
       newProducts = new ProductList().render(products);
       this.updateFiltersAmount(products);
       this.updateFoundProductsTotal(products);
     }
 
-    const catalogueContainer = document.querySelector('.catalogue__container') as HTMLElement;
-    catalogueContainer.innerHTML = newProducts;
+    const productsContainer = getSelector(document, '.products-container');
+    productsContainer.innerHTML = newProducts;
   }
 
   makeQuery(filters: { [x: string]: string[] }) {
