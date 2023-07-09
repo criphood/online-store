@@ -1,0 +1,13 @@
+@media (max-width: 768px) {
+    .error {
+        &__number {
+          font-size: 5rem;
+          font-weight: 900;
+        }
+      
+        &__description {
+          font-size: 1rem;
+          text-align: center;
+        }
+      }
+}

@@ -1,0 +1,17 @@
+@media (max-width: 768px) {
+    .modal__container {
+        width: 380px;
+        padding: 10px;
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 520px) {
+    .modal__container {
+        width: 320px;
+    }
+
+    .credit-card {
+        width: 280px;
+    }
+}

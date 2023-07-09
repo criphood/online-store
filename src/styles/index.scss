@@ -1,0 +1,218 @@
+@import 'variables';
+@import 'desktop/main';
+@import 'desktop/error';
+@import 'desktop/product';
+@import 'desktop/cart';
+@import 'desktop/modal';
+@import 'desktop/preloader';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $mainFont;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-track {
+  background: $color1;
+  border-radius: 5px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: $color3;
+  border-radius: 5px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  background: $color1;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+
+  background: $color2;
+
+  border-radius: 0 0 20px 20px;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    padding: 10px 20px;
+
+    &-home {
+      width: 32%;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: $color1;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: $color3;
+      }
+    }
+
+    &-money {
+      width: 32%;
+      font-weight: 600;
+      color: $color1;
+      text-align: center;
+    }
+
+    & .cart__wrapper {
+      display: flex;
+      justify-content: end;
+      width: 32%;
+    }
+
+    &-cart {
+      display: flex;
+      justify-content: end;
+      align-items: flex-end;
+
+      width: 40px;
+      height: 40px;
+
+      background-image: url('../assets/cart.jpg');
+      background-size: 40px 100%;
+      background-position: right;
+      background-repeat: no-repeat;
+
+      cursor: pointer;
+    }
+
+    .cart-count {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 20px;
+      height: 20px;
+
+      text-align: center;
+      font-size: 0.9rem;
+
+      border: 2px solid rgb(255, 0, 0);
+      border-radius: 100%;
+
+      background: $color1;
+      font-weight: 800;
+    }
+  }
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  flex: 1 1 auto;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  border-radius: 20px 20px 0 0;
+  background: $color2;
+
+  & .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    padding: 10px 20px;
+  }
+
+  &__logo {
+    width: 80px;
+    display: flex;
+    justify-content: start;
+
+    & #rsschool {
+      width: 80px;
+    }
+
+    & #rsschool path,
+    #rsschool:hover .st3 path {
+      fill: #fff;
+      width: 80px;
+      transition: all 0.3s ease;
+    }
+
+    & #rsschool .st3 path {
+      fill: #000;
+    }
+
+    & #rsschool:hover path {
+      fill: $color3;
+    }
+  }
+
+  &__year {
+    color: #fff;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__github {
+    width: 150px;
+    display: flex;
+    justify-content: end;
+    text-decoration: none;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  & .github path,
+  & .github:hover text {
+    transition: all 0.3s ease;
+  }
+
+  & .github:hover path,
+  & .github:hover text {
+    fill: $color3;
+  }
+}
+
+@media (max-width: 1366px) {
+  .main-content,
+  .header,
+  .footer {
+    width: 100%;
+  }
+
+  .header__container,
+  .footer .container {
+    padding: 5px;
+  }
+
+  .footer .container {
+    width: 100%;
+  }
+
+  .main-content {
+    padding: 5px;
+  }
+}

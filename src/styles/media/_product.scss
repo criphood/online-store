@@ -1,0 +1,157 @@
+@media (max-width: 1366px) {
+    .container__details {
+        & .product__info {
+            justify-content: space-between;
+
+            &-images {
+                width: 50%;
+            }
+        }
+
+        & .product__options-add,
+        & .product__options-buy {
+            width: 130px;
+            height: 40px;
+            padding: 5px 0;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .container__details {
+        & .crumbs {
+            margin-top: 10px;
+        }
+
+        & .product {
+            min-height: 550px;
+
+            &__title {
+                font-size: 1.5rem;
+                padding-bottom: 0;
+            }
+
+            &__info {
+                &-details {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .container__details {
+        & .crumbs {
+            font-size: 1.1rem;
+        }
+
+        & .product {
+            width: 95%;
+            min-height: 480px;
+
+            &__title {
+                font-size: 1.5rem;
+                padding-bottom: 0;
+            }
+
+            &__info {
+                &-details {
+                    padding-top: 10px;
+                }
+            }
+
+            &__options {
+                margin-top: 10px;
+                gap: 10px;
+
+                &-price {
+                    font-size: 1.5rem;
+                }
+
+                &-buttons {
+                    flex-direction: column;
+                    gap: 5px;
+                }
+
+                &-buy,
+                &-add {
+                    height: 30px;
+                    font-size: 0.7rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 520px) {
+    .container__details {
+
+        .crumbs {
+            font-size: 1rem;
+            gap: 5px;
+        }
+
+        & .product {
+            width: 100%;
+            min-height: 450px;
+
+            &__title {
+                font-size: 1.5rem;
+                padding-bottom: 0;
+            }
+
+            &__info {
+                padding-top: 5px;
+
+                &-images {
+                    & .side__images {
+                        width: 60px;
+                    }
+                    & .head__image {
+                        justify-content: end;
+                        align-items: flex-start;
+                        padding-top: 80px;
+                    }
+                    & .thumbnail {
+                        width: 95%;
+                    }
+                }
+
+                &-details {
+                    padding-top: 10px;
+                    width: 45%;
+                    gap: 5px;
+
+                    & .details {
+                        font-size: 0.7rem;
+                        &__inner {
+                            padding-left: 20px;
+                        }
+                    }
+                }
+                
+            }
+
+            &__options {
+                margin-top: 10px;
+                gap: 10px;
+
+                &-price {
+                    font-size: 1.5rem;
+                }
+
+                &-buttons {
+                    flex-direction: column;
+                    gap: 5px;
+                }
+
+                &-buy,
+                &-add {
+                    height: 30px;
+                    font-size: 0.7rem;
+                }
+            }
+        }
+    }
+}
